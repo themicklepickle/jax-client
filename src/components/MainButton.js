@@ -10,7 +10,7 @@ const styles = (theme) => ({
     padding: 50,
   },
   largeIcon: {
-    fontSize: 100,
+    fontSize: 150,
   },
 });
 
