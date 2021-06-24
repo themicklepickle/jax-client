@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { Grid } from "@material-ui/core";
+import { FastfoodRounded, LocalDrinkRounded } from "@material-ui/icons";
 
-function App() {
+import MainButton from "./components/MainButton";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Grid
+      container
+      direction="column"
+      justify="space-evenly"
+      alignItems="center"
+    >
+      <Grid item>
+        <MainButton
+          resetTimes={[
+            { hour: 2, minutes: 0 },
+            { hour: 14, minutes: 0 },
+          ]}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <FastfoodRounded />
+        </MainButton>
+      </Grid>
+      <Grid item>
+        <MainButton resetTimes={[{ hour: 2, minutes: 0 }]}>
+          <LocalDrinkRounded />
+        </MainButton>
+      </Grid>
+    </Grid>
   );
-}
+};
 
 export default App;
