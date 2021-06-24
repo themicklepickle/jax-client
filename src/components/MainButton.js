@@ -10,7 +10,7 @@ const styles = (theme) => ({
     padding: 50,
   },
   largeIcon: {
-    fontSize: 100,
+    fontSize: 150,
   },
 });
 
@@ -21,7 +21,11 @@ const MainButton = (props) => {
   useReset(resetIconColor, props.resetTimes);
 
   return (
-    <IconButton onClick={changeIconColor} className={classes.largeButton}>
+    <IconButton
+      onClick={changeIconColor}
+      className={classes.largeButton}
+      disableRipple
+    >
       {cloneElement(props.children, {
         style: { color: iconColor },
         className: classes.largeIcon,
