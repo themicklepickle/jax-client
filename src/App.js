@@ -1,17 +1,12 @@
-import { Grid } from "@material-ui/core";
 import { FastfoodRounded, LocalDrinkRounded } from "@material-ui/icons";
+import "./App.css";
 
 import MainButton from "./components/MainButton";
 
 const App = () => {
   return (
-    <Grid
-      container
-      direction="column"
-      justify="space-evenly"
-      alignItems="center"
-    >
-      <Grid item>
+    <div className="wrapper">
+      <div className="icon">
         <MainButton
           resetTimes={[
             { hour: 2, minutes: 0 },
@@ -20,13 +15,13 @@ const App = () => {
         >
           <FastfoodRounded />
         </MainButton>
-      </Grid>
-      <Grid item>
+      </div>
+      <div className="icon">
         <MainButton resetTimes={[{ hour: 2, minutes: 0 }]}>
           <LocalDrinkRounded />
         </MainButton>
-      </Grid>
-    </Grid>
+      </div>
+    </div>
   );
 };
 
