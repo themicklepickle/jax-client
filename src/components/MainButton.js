@@ -25,6 +25,7 @@ const MainButton = (props) => {
       onClick={changeIconColor}
       className={classes.largeButton}
       disableRipple
+      disableFocusRipple
     >
       {cloneElement(props.children, {
         style: { color: iconColor },
