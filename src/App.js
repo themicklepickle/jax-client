@@ -1,11 +1,9 @@
-import { IconButton } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
-import { FastfoodRounded } from "@material-ui/icons";
-import useButton from "./useButton";
+import { FastfoodRounded, LocalDrinkRounded } from "@material-ui/icons";
+
+import MainButton from "./components/MainButton";
 
 const App = () => {
-  const [buttonColor, changeColor] = useButton();
-
   return (
     <Grid
       container
@@ -14,13 +12,19 @@ const App = () => {
       alignItems="center"
     >
       <Grid item>
-        <IconButton>
-          <FastfoodRounded
-            fontSize="large"
-            onClick={changeColor}
-            style={{ color: buttonColor }}
-          ></FastfoodRounded>
-        </IconButton>
+        <MainButton
+          resetTimes={[
+            { hour: 2, minutes: 0 },
+            { hour: 14, minutes: 0 },
+          ]}
+        >
+          <FastfoodRounded />
+        </MainButton>
+      </Grid>
+      <Grid item>
+        <MainButton resetTimes={[{ hour: 2, minutes: 0 }]}>
+          <LocalDrinkRounded />
+        </MainButton>
       </Grid>
     </Grid>
   );
