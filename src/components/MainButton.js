@@ -28,7 +28,7 @@ const MainButton = (props) => {
       disableFocusRipple
     >
       {cloneElement(props.children, {
-        style: { color: iconColor },
+        style: { color: iconColor, transform: "rotate(270deg)" },
         className: classes.largeIcon,
       })}
     </IconButton>
