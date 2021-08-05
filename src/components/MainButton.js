@@ -1,38 +1,24 @@
-import { IconButton } from "@material-ui/core";
-import { withStyles } from "@material-ui/core/styles";
+import { Grid, IconButton } from "@material-ui/core";
 import { cloneElement } from "react";
 
-import useButton from "./useMainButton";
-import useReset from "../hooks/useReset";
+import { useButton, useReset } from "../hooks";
 
-const styles = (theme) => ({
-  largeButton: {
-    padding: 50,
-  },
-  largeIcon: {
-    fontSize: 150,
-  },
-});
-
-const MainButton = (props) => {
-  const { classes } = props;
-
+const MainButton = ({ resetTimes, children }) => {
   const [iconColor, changeIconColor, resetIconColor] = useButton();
-  useReset(resetIconColor, props.resetTimes);
+  useReset(resetIconColor, resetTimes);
 
   return (
-    <IconButton
-      onClick={changeIconColor}
-      className={classes.largeButton}
-      disableRipple
-      disableFocusRipple
-    >
-      {cloneElement(props.children, {
-        style: { color: iconColor },
-        className: classes.largeIcon,
-      })}
-    </IconButton>
+    <Grid item>
+      <IconButton
+        onClick={changeIconColor}
+        style={{ width: "7em", height: "7em" }}
+      >
+        {cloneElement(children, {
+          style: { color: iconColor, transform: "rotate(270deg)" },
+        })}
+      </IconButton>
+    </Grid>
   );
 };
 
-export default withStyles(styles)(MainButton);
+export default MainButton;

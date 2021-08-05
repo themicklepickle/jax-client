@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { green, red } from "@material-ui/core/colors";
 
-const useMainButton = () => {
+const useButton = () => {
   const colors = {
     off: red[300],
     on: green[300],
@@ -22,4 +22,4 @@ const useMainButton = () => {
   return [buttonColor, changeColor, resetColor];
 };
 
-export default useMainButton;
+export default useButton;
