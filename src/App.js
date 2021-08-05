@@ -26,20 +26,15 @@ const App = () => {
           justify="space-evenly"
           style={{ height: "100%" }}
         >
-          <MainButton
-            resetTimes={[
-              { hour: 2, minutes: 0 },
-              { hour: 14, minutes: 0 },
-            ]}
-          >
+          <MainButton resetTimes={[{ hour: 2 }, { hour: 14 }]}>
             <DogFood />
           </MainButton>
 
-          <MainButton resetTimes={[{ hour: 2, minutes: 0 }]}>
+          <MainButton resetTimes={[{ hour: 2 }]}>
             <Water />
           </MainButton>
 
-          <MainButton resetTimes={[{ hour: 2, minutes: 0 }]}>
+          <MainButton resetTimes={[{ hour: 2 }]}>
             <DogWalk />
           </MainButton>
         </Grid>
