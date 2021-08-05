@@ -29,7 +29,7 @@ const App = () => {
             container
             direction="column"
             justify="space-evenly"
-            style={{ height: "100%" }}
+            style={{ height: "100%", backgroundColor: "black" }}
           >
             <MainButton resetTimes={[{ hour: 2 }, { hour: 14 }]}>
               <DogFood />
