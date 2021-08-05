@@ -1,8 +1,7 @@
 import { Grid, IconButton } from "@material-ui/core";
 import { cloneElement } from "react";
 
-import useButton from "./useMainButton";
-import useReset from "../hooks/useReset";
+import { useButton, useReset } from "../hooks";
 
 const MainButton = ({ resetTimes, children }) => {
   const [iconColor, changeIconColor, resetIconColor] = useButton();
