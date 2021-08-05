@@ -1,11 +1,16 @@
 const useReset = (resetFunction, targetTimes) => {
-  const getTargetDate = (target) => {
+  const getTargetDate = ({
+    hour = 0,
+    minute = 0,
+    second = 0,
+    millisecond = 0,
+  }) => {
     const targetDate = new Date();
 
-    targetDate.setHours(target.hour);
-    targetDate.setMinutes(target.minutes);
-    targetDate.setSeconds(0);
-    targetDate.setMilliseconds(0);
+    targetDate.setHours(hour);
+    targetDate.setMinutes(minute);
+    targetDate.setSeconds(second);
+    targetDate.setMilliseconds(millisecond);
 
     return targetDate;
   };

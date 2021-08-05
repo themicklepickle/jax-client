@@ -1,27 +1,51 @@
-import { FastfoodRounded, LocalDrinkRounded } from "@material-ui/icons";
-import "./App.css";
+import { useState } from "react";
+import styled from "styled-components";
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
+import { Grid, IconButton } from "@material-ui/core";
 
-import MainButton from "./components/MainButton";
+import { DogFood, DogWalk, Water, Fullscreen } from "./svgs";
+
+import { MainButton } from "./components";
+
+const Wrapper = styled.div`
+  width: 100%;
+  text-align: center;
+  margin: auto 0;
+`;
 
 const App = () => {
+  const handle = useFullScreenHandle();
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
   return (
-    <div className="wrapper">
-      <div className="icon">
-        <MainButton
-          resetTimes={[
-            { hour: 2, minutes: 0 },
-            { hour: 14, minutes: 0 },
-          ]}
-        >
-          <FastfoodRounded />
-        </MainButton>
-      </div>
-      <div className="icon">
-        <MainButton resetTimes={[{ hour: 2, minutes: 0 }]}>
-          <LocalDrinkRounded />
-        </MainButton>
-      </div>
-    </div>
+    <Wrapper>
+      <IconButton onClick={handle.enter}>
+        <Fullscreen style={{ color: "white", width: "7em", height: "7em" }} />
+      </IconButton>
+
+      <FullScreen handle={handle} onChange={(state) => setIsFullscreen(state)}>
+        {isFullscreen && (
+          <Grid
+            container
+            direction="column"
+            justify="space-evenly"
+            style={{ height: "100%", backgroundColor: "black" }}
+          >
+            <MainButton resetTimes={[{ hour: 2 }, { hour: 14 }]}>
+              <DogFood />
+            </MainButton>
+
+            <MainButton resetTimes={[{ hour: 2 }]}>
+              <Water />
+            </MainButton>
+
+            <MainButton resetTimes={[{ hour: 2 }]}>
+              <DogWalk />
+            </MainButton>
+          </Grid>
+        )}
+      </FullScreen>
+    </Wrapper>
   );
 };
 
