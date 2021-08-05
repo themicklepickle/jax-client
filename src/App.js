@@ -1,18 +1,22 @@
+import styled from "styled-components";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
-
-import "./App.css";
 import { Button, Grid } from "@material-ui/core";
 
 import { DogFood, DogWalk, Water } from "./svgs";
 
 import { MainButton } from "./components";
 
+const Wrapper = styled.div`
+  width: 100%;
+  text-align: center;
+  margin: auto 0;
+`;
 
 const App = () => {
   const handle = useFullScreenHandle();
 
   return (
-    <div className="wrapper">
+    <Wrapper>
       <Button onClick={handle.enter}>Enter fullscreen</Button>
 
       <FullScreen handle={handle}>
@@ -40,7 +44,7 @@ const App = () => {
           </MainButton>
         </Grid>
       </FullScreen>
-    </div>
+    </Wrapper>
   );
 };
 
