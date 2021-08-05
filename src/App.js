@@ -5,7 +5,8 @@ import { Button, Grid } from "@material-ui/core";
 
 import { DogFood, DogWalk, Water } from "./svgs";
 
-import MainButton from "./components/MainButton";
+import { MainButton } from "./components";
+
 
 const App = () => {
   const handle = useFullScreenHandle();
